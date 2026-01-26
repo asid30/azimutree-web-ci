@@ -37,13 +37,25 @@
                 <a class="btn ghost" href="https://github.com/asid30/azimutree-flutter" target="_blank">View on GitHub</a>
             </p>
 
-            <div class="screenshots">
-                <img src="<?= base_url('assets/1.jpeg') ?>" alt="Screenshot 1" onerror="this.style.display='none'">
-                <img src="<?= base_url('assets/2.jpeg') ?>" alt="Screenshot 2" onerror="this.style.display='none'">
-                <img src="<?= base_url('assets/3.jpeg') ?>" alt="Screenshot 3" onerror="this.style.display='none'">
-                <img src="<?= base_url('assets/4.jpeg') ?>" alt="Screenshot 4" onerror="this.style.display='none'">
-                <img src="<?= base_url('assets/5.jpeg') ?>" alt="Screenshot 5" onerror="this.style.display='none'">
-                <img src="<?= base_url('assets/6.jpeg') ?>" alt="Screenshot 6" onerror="this.style.display='none'">
+            <div class="screenshot-slider">
+                <div class="slider-container">
+                    <div class="screenshots">
+                        <img src="<?= base_url('assets/1.jpeg') ?>" alt="Screenshot 1" onerror="this.style.display='none'">
+                        <img src="<?= base_url('assets/2.jpeg') ?>" alt="Screenshot 2" onerror="this.style.display='none'">
+                        <img src="<?= base_url('assets/3.jpeg') ?>" alt="Screenshot 3" onerror="this.style.display='none'">
+                        <img src="<?= base_url('assets/4.jpeg') ?>" alt="Screenshot 4" onerror="this.style.display='none'">
+                        <img src="<?= base_url('assets/5.jpeg') ?>" alt="Screenshot 5" onerror="this.style.display='none'">
+                        <img src="<?= base_url('assets/6.jpeg') ?>" alt="Screenshot 6" onerror="this.style.display='none'">
+                    </div>
+                </div>
+                <div class="slider-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                    <span class="dot" data-slide="3"></span>
+                    <span class="dot" data-slide="4"></span>
+                    <span class="dot" data-slide="5"></span>
+                </div>
             </div>
         </div>
     </section>
