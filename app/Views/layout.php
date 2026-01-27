@@ -23,10 +23,10 @@
         <div class="appbar-right">
             <nav class="appbar-nav">
                 <a class="app-link" href="<?= base_url() ?>">🏠 Beranda</a>
-                <a class="app-link" href="<?= base_url('panduan') ?>">📘 Panduan Aplikasi</a>
-                <a class="app-link" href="<?= base_url('template') ?>">📄 Template Excel</a>
-                <a class="app-link" href="<?= base_url('about') ?>">ℹ️ Tentang Aplikasi</a>
-                <a class="app-link" href="https://forms.gle/7KE2jecH4CiNQxTg9" target="_blank" rel="noopener noreferrer">📝 Kotak Saran</a>
+                <a class="app-link" href="<?= base_url('panduan') ?>">📘 Panduan</a>
+                <a class="app-link" href="<?= base_url('template') ?>">📄 Template</a>
+                <a class="app-link" href="<?= base_url('about') ?>">ℹ️ Tentang</a>
+                <a class="app-link" href="https://forms.gle/7KE2jecH4CiNQxTg9" target="_blank" rel="noopener noreferrer">📝 Saran</a>
             </nav>
             <button id="menuToggle" class="menu-btn" aria-label="Toggle menu">☰</button>
         </div>
@@ -38,10 +38,10 @@
     <div class="container">
         <div class="mobile-sidebar-header"><h3>Menu</h3></div>
         <a class="app-link" href="<?= base_url() ?>">🏠 Beranda</a>
-        <a class="app-link" href="<?= base_url('panduan') ?>">📘 Panduan Aplikasi</a>
-        <a class="app-link" href="<?= base_url('template') ?>">📄 Template Excel</a>
-        <a class="app-link" href="<?= base_url('about') ?>">ℹ️ Tentang Aplikasi</a>
-        <a class="app-link" href="https://forms.gle/7KE2jecH4CiNQxTg9" target="_blank" rel="noopener noreferrer">📝 Kotak Saran</a>
+        <a class="app-link" href="<?= base_url('panduan') ?>">📘 Panduan</a>
+        <a class="app-link" href="<?= base_url('template') ?>">📄 Template</a>
+        <a class="app-link" href="<?= base_url('about') ?>">ℹ️ Tentang</a>
+        <a class="app-link" href="https://forms.gle/7KE2jecH4CiNQxTg9" target="_blank" rel="noopener noreferrer">📝 Saran</a>
     </div>
 </nav>
 
