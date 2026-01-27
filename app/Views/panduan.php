@@ -127,7 +127,6 @@
             <ul>
                 <li>🌗 <strong>Ganti Tema</strong> — Terang / Gelap.</li>
                 <li>🐞 <strong>Mode Debug</strong> — fitur pengujian: <em>Generate data acak</em> dan <em>Hapus seluruh data</em> (hanya untuk pengujian).</li>
-                <li>🔐 <strong>Keamanan</strong> — Pastikan tidak menyimpan token atau kredensial pada file yang di-commit (gunakan `.env`).</li>
             </ul>
 
             <h3>5. Impor / Ekspor & Template 📄</h3>

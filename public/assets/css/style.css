@@ -103,7 +103,22 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetic
     /* add a little space below the appbar so content doesn't butt against it */
     .appbar{padding-bottom:.5rem}
     main{padding-top:.5rem}
+
+  /* Improve readability and tap targets on small screens */
+  .section .container{padding:0 0.75rem}
+  .section h2{font-size:1.25rem}
+  .section p, .section li{font-size:.95rem}
+  .section .btn{display:block;width:100%;padding:.75rem;text-align:center}
+  .section .btn + .btn{margin-top:.5rem}
 }
+
+  /* Template actions: align buttons horizontally on wide screens, stack on mobile */
+  .template-actions{display:flex;gap:.5rem;align-items:center}
+  .template-actions .btn{display:inline-block}
+  @media (max-width:800px){
+    .template-actions{flex-direction:column}
+    .template-actions .btn{width:100%;display:block}
+  }
 
 @media (min-width:1200px){
   .slider-container{max-width:1200px;margin:0 auto;overflow-x:auto}
@@ -120,9 +135,10 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetic
 .mobile-sidebar:not(.hidden){transform:translateX(0)}
 .mobile-sidebar .container{padding:0}
 
-/* Shift sidebar content slightly down on small screens so text sits lower */
+/* Mobile sidebar header + adjust padding so content isn't pushed down */
+.mobile-sidebar-header{padding:0 0 .5rem;margin-bottom:.5rem;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--text);font-weight:700}
 @media (max-width:800px){
-  .mobile-sidebar{padding:3.5rem 1rem 1rem}
+  .mobile-sidebar{padding:1rem}
 }
 
 /* small adjustment to ensure content under header not hidden */

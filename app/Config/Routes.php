@@ -7,3 +7,4 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('panduan', 'Home::panduan');
+$routes->get('template', 'Home::template');

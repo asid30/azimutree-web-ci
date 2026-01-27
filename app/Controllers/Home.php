@@ -13,4 +13,9 @@ class Home extends BaseController
     {
         return view('panduan');
     }
+
+    public function template(): string
+    {
+        return view('template');
+    }
 }

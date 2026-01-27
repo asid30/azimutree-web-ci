@@ -24,7 +24,7 @@
             <nav class="appbar-nav">
                 <a class="app-link" href="<?= base_url() ?>">🏠 Beranda</a>
                 <a class="app-link" href="<?= base_url('panduan') ?>">📘 Panduan Aplikasi</a>
-                <a class="app-link" href="https://docs.google.com/spreadsheets/d/1EN-vjd3Tn1Q1wAyW599V07c_YIaMHK4fgSvLvuOS3pI/edit?usp=sharing" target="_blank" rel="noopener">📄 Template Excel</a>
+                <a class="app-link" href="<?= base_url('template') ?>">📄 Template Excel</a>
                 <a class="app-link" href="https://saweria.co/asid30" target="_blank" rel="noopener">☕ Dukungan</a>
             </nav>
             <button id="menuToggle" class="menu-btn" aria-label="Toggle menu">☰</button>
@@ -35,9 +35,10 @@
 <!-- Mobile sidebar (toggled by #menuToggle) -->
 <nav id="menu" class="mobile-sidebar hidden" aria-hidden="true">
     <div class="container">
+        <div class="mobile-sidebar-header"><h3>Menu</h3></div>
         <a class="app-link" href="<?= base_url() ?>">🏠 Beranda</a>
         <a class="app-link" href="<?= base_url('panduan') ?>">📘 Panduan Aplikasi</a>
-        <a class="app-link" href="https://docs.google.com/spreadsheets/d/1EN-vjd3Tn1Q1wAyW599V07c_YIaMHK4fgSvLvuOS3pI/edit?usp=sharing" target="_blank" rel="noopener">📄 Template Excel</a>
+        <a class="app-link" href="<?= base_url('template') ?>">📄 Template Excel</a>
         <a class="app-link" href="https://saweria.co/asid30" target="_blank" rel="noopener">☕ Dukungan</a>
     </div>
 </nav>
