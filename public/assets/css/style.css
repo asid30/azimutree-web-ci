@@ -114,6 +114,11 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetic
 .mobile-sidebar:not(.hidden){transform:translateX(0)}
 .mobile-sidebar .container{padding:0}
 
+/* Shift sidebar content slightly down on small screens so text sits lower */
+@media (max-width:800px){
+  .mobile-sidebar{padding:3.5rem 1rem 1rem}
+}
+
 /* small adjustment to ensure content under header not hidden */
 main{padding-top:0}
 
