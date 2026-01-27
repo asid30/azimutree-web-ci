@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Panduan Azimutree</title>
     <meta name="description" content="Panduan lengkap penggunaan Azimutree — instruksi fitur, impor/ekspor, dan tips lapangan untuk pengguna Android.">
-    <link rel="icon" href="<?= base_url('assets/icon.png') ?>">
+    <link rel="icon" href="<?= base_url('icon.ico') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
 </head>
 <body>
