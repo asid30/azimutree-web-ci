@@ -1,14 +1,21 @@
 <?= $this->extend('layout') ?>
 
-<?= $this->section('title') ?>Azimutree — Android app<?= $this->endSection() ?>
+<?= $this->section('title') ?>
+Azimutree — Aplikasi Pemantauan Kesehatan Hutan & Pemetaan
+<?= $this->endSection() ?>
 
-<?= $this->section('description') ?>Official Azimutree Android app — download, releases, and info<?= $this->endSection() ?>
+
+
+<?= $this->section('description') ?>
+Azimutree adalah aplikasi Android open source untuk pemantauan kesehatan hutan, pemetaan, dan pengelolaan data pohon.
+<?= $this->endSection() ?>
+
 
 <?= $this->section('content') ?>
     <section class="hero">
         <div class="container">
             <h1>Azimutree</h1>
-            <p class="lead">Aplikasi seluler untuk mendukung Forest Health Monitoring — memetakan klaster, plot, dan pohon dengan penyimpanan offline.</p>
+            <p class="lead">Forest Health Monitoring — memetakan klaster, plot, dan pohon dengan penyimpanan offline.</p>
             <p style="margin-top:.5rem;font-weight:700;color:#0b6efd">Platform: Hanya untuk Android 📱 ID 🇮🇩</p>
             <p class="cta">
                 <a id="download" class="btn primary" href="https://github.com/asid30/azimutree-flutter/releases/download/v1.1.26/app-release-azimutree-v1.1.26.apk" target="_blank">Download APK</a>

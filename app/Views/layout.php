@@ -3,8 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="google-site-verification" content="GXMHZxGwGj0w8a1Bv6mnSBIyeqvFQL0WpJ9P3jbzxHE">
-    <title><?= $this->renderSection('title') ?: 'Azimutree' ?></title>
+    <title><?= $this->renderSection('title') ?: 'Azimutree — Forest Health Monitoring App' ?></title>
     <meta name="description" content="<?= $this->renderSection('description') ?: 'Azimutree — Android app' ?>">
     <link rel="icon" href="<?= base_url('icon.ico') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
