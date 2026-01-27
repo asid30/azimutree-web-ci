@@ -1,13 +1,14 @@
 <?= $this->extend('layout') ?>
 
 <?= $this->section('title') ?>
-Azimutree — Aplikasi Pemantauan Kesehatan Hutan & Pemetaan
+Azimutree — Aplikasi Pemetaan Klaster Plot Kesehatan Hutan (FHM)
 <?= $this->endSection() ?>
 
 
 
 <?= $this->section('description') ?>
-Azimutree adalah aplikasi Android open source untuk pemantauan kesehatan hutan, pemetaan, dan pengelolaan data pohon.
+Azimutree adalah aplikasi Android open source untuk pemantauan kesehatan hutan, pemetaan klaster, dan pengelolaan data pohon dengan metode Forest Health Monitoring (FHM).
+.
 <?= $this->endSection() ?>
 
 

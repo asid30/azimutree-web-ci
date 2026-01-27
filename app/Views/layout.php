@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title><?= $this->renderSection('title') ?: 'Azimutree — Forest Health Monitoring App' ?></title>
-    <meta name="description" content="<?= $this->renderSection('description') ?: 'Azimutree — Android app' ?>">
+    <title><?= $this->renderSection('title') ?: 'Azimutree — Aplikasi Pemetaan Klaster Plot Kesehatan Hutan (FHM)' ?></title>
+    <meta name="description" content="<?= $this->renderSection('description') ?: 'Azimutree adalah aplikasi Android open source untuk pemantauan kesehatan hutan, pemetaan klaster, dan pengelolaan data pohon dengan metode Forest Health Monitoring (FHM).
+' ?>">
     <link rel="icon" href="<?= base_url('icon.ico') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
     <?= $this->renderSection('head') ?>
