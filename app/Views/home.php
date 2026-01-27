@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="google-site-verification" content="GXMHZxGwGj0w8a1Bv6mnSBIyeqvFQL0WpJ9P3jbzxHE">
     <title>Azimutree — Android app</title>
     <meta name="description" content="Official Azimutree Android app — download, releases, and info">
     <link rel="icon" href="<?= base_url('assets/icon.png') ?>">
