@@ -1,43 +1,128 @@
 /* Simple minimal styles for Azimutree landing page */
-:root{--bg:#f7f8fa;--accent:#0b6efd;--muted:#6b7280;--card:#ffffff}
+:root{--bg:#0b1220;--accent:#34d399;--muted:#9aa4ad;--card:#0f1724;--text:#e6f3ef}
 *{box-sizing:border-box}
-body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#0f172a;line-height:1.5}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
 .container{max-width:1100px;margin:0 auto;padding:1.25rem}
-.site-header{background:transparent;border-bottom:1px solid rgba(15,23,42,.04)}
+.site-header{background:var(--card);border-bottom:1px solid rgba(255,255,255,0.04)}
 .header-inner{display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:.5rem;text-decoration:none;color:inherit}
-.logo{height:44px;width:auto}
-.brand-text{font-weight:600;font-size:1.125rem}
+.appbar-left{display:flex;align-items:center;gap:.5rem}
+ .appbar-right{display:flex;align-items:center;gap:.5rem}
+.brand{display:flex;align-items:center;gap:.5rem;text-decoration:none;color:var(--text)}
+.logo{height:44px;width:auto;filter:brightness(.95)}
+.brand-text{font-weight:600;font-size:1.125rem;color:var(--text)}
+.brand{display:flex;align-items:center;gap:.5rem;text-decoration:none;color:var(--text);white-space:nowrap}
+.logo{height:44px;width:auto;filter:brightness(.95);display:block}
+.brand-text{font-weight:600;font-size:1.125rem;color:var(--text);line-height:1;margin-left:.25rem}
 .nav{position:relative}
 .menu{list-style:none;margin:0;padding:0;display:flex;gap:1rem}
 .menu.hidden{display:none}
 .menu a{color:var(--muted);text-decoration:none}
 .menu-btn{display:none;border:0;background:transparent;font-size:1.25rem;cursor:pointer}
+.menu-btn{display:none;border:0;background:transparent;font-size:1.25rem;cursor:pointer;color:var(--muted);padding:.25rem .5rem;border-radius:6px}
 
-.hero{padding:3.5rem 0;background:linear-gradient(180deg,#fff 0%,#f8fafc 100%)}
-.hero h1{font-size:2.25rem;margin:.25rem 0}
+.hero{padding:3.5rem 0;background:linear-gradient(180deg,rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.01) 100%)}
+.hero h1{font-size:2.25rem;margin:.25rem 0;color:var(--text)}
 .lead{color:var(--muted);max-width:60%;margin:0 0 1rem}
 .cta{margin:1rem 0}
 .btn{display:inline-block;padding:.6rem 1rem;border-radius:8px;text-decoration:none;font-weight:600;border:1px solid transparent}
-.btn.primary{background:var(--accent);color:#fff}
-.btn.ghost{background:transparent;color:var(--accent);border-color:rgba(11,110,253,.12)}
+.btn.primary{background:var(--accent);color:#07221a}
+.btn.ghost{background:transparent;color:var(--accent);border-color:rgba(52,211,153,.12)}
 
-.screenshots{display:flex;gap:.5rem;margin-top:1.25rem}
-.screenshots img{height:220px;object-fit:cover;border-radius:8px;background:linear-gradient(90deg,#eef2ff,#f0f9ff)}
+.screenshot-slider{margin-top:1.25rem}
+.slider-container{overflow-x:auto;position:relative}
+.screenshots{display:flex;gap:.5rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+.screenshots::-webkit-scrollbar{display:none}
+.screenshots img{height:340px;object-fit:cover;border-radius:8px;background:linear-gradient(90deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));flex-shrink:0;scroll-snap-align:start;border:1px solid rgba(255,255,255,0.03)}
+.slider-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1rem}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(15,23,42,.2);cursor:pointer;transition:all .3s ease}
+.dot.active{background:var(--accent);width:24px;border-radius:4px}
 
 .section{padding:2.5rem 0}
 .features{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;padding:0;margin:1rem 0;list-style:none}
-.features li{background:var(--card);padding:1rem;border-radius:8px;box-shadow:0 1px 0 rgba(15,23,42,.03)}
+.features{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;padding:0;margin:1rem 0;list-style:none}
 
-.muted{background:#fff}
+/* Feature card styles */
+.feature-card{padding:1rem;border-radius:10px;box-shadow:0 6px 18px rgba(2,6,23,.6);color:var(--text);background:var(--card)}
+.feature-card h4{margin:0 0 .5rem;font-size:1.05rem;color:var(--text)}
+.feature-card p{margin:0;color:var(--muted)}
+.feature-1,
+.feature-2,
+.feature-3,
+.feature-4,
+.feature-5{
+  background: var(--card);
+}
 
-.site-footer{border-top:1px solid rgba(15,23,42,.04);padding:1.25rem 0;text-align:center;color:var(--muted)}
+.muted{background:var(--card);border-radius:8px}
+
+/* Content images (figures) should never overflow their container */
+.content-figure{width:100%;max-width:420px;height:auto;display:block;border-radius:8px;margin:0.75rem auto;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+
+@media (min-width:1200px){
+  .content-figure{max-width:520px;margin:0.75rem 0 0 0}
+}
+
+.site-footer{border-top:1px solid rgba(255,255,255,0.03);padding:1.25rem 0;text-align:center;color:var(--muted)}
+
+/* App bar styles */
+.appbar{position:sticky;top:0;z-index:50;background:var(--card);box-shadow:0 2px 6px rgba(2,6,23,.6);border-bottom:0}
+.appbar-inner{display:flex;align-items:center;justify-content:space-between;padding:.5rem 0}
+.appbar-nav{display:flex;gap:.75rem;align-items:center}
+.app-link{display:inline-block;padding:.4rem .75rem;border-radius:8px;color:var(--muted);text-decoration:none;font-weight:600}
+.app-link.active,.app-link:hover{background:rgba(52,211,153,.06);color:var(--accent)}
 
 @media (max-width:800px){
   .lead{max-width:100%}
-  .screenshots{flex-direction:column}
-  .screenshots img{height:160px}
+  .screenshots{gap:.75rem;padding:0 1rem}
+  .screenshots img{height:400px;width:90vw;max-width:300px}
   .features{grid-template-columns:1fr}
   .menu{flex-direction:column;align-items:flex-end;background:transparent}
   .menu-btn{display:block}
+  /* Mobile appbar spacing adjustments */
+  .appbar-inner{padding:1rem 0}
+  .brand{align-items:center}
+  .logo{height:40px}
+    /* hide desktop nav and show mobile sidebar when used */
+    .appbar-nav{display:none}
+    .mobile-sidebar{display:block}
+
+    /* On small screens show the menu button first, then brand (button then logo+text)
+      by swapping region order. Also align items from the left. */
+    .appbar-inner{justify-content:flex-start;gap:.75rem}
+    .appbar-right{order:1}
+    .appbar-left{order:2}
+    .appbar-right .menu-btn{order:1}
+    .brand{margin-left:0}
+
+    /* add a little space below the appbar so content doesn't butt against it */
+    .appbar{padding-bottom:.5rem}
+    main{padding-top:.5rem}
 }
+
+@media (min-width:1200px){
+  .slider-container{max-width:1200px;margin:0 auto;overflow-x:auto}
+  .slider-container::-webkit-scrollbar{display:block;height:10px}
+  .slider-container{scrollbar-width:thin}
+  .screenshots{justify-content:flex-start;padding:0 1rem}
+  .screenshots img{height:420px;max-width:520px}
+}
+
+/* Mobile sidebar styles */
+.hidden{display:none !important}
+.mobile-sidebar{position:fixed;left:0;top:0;height:100vh;width:260px;background:var(--card);box-shadow:2px 0 24px rgba(2,6,23,.6);padding:1rem;z-index:60;overflow:auto;transform:translateX(-110%);transition:transform .28s ease}
+.mobile-sidebar .app-link{display:block;margin:0.5rem 0;padding:.6rem .75rem}
+.mobile-sidebar:not(.hidden){transform:translateX(0)}
+.mobile-sidebar .container{padding:0}
+
+/* small adjustment to ensure content under header not hidden */
+main{padding-top:0}
+
+/* Modal styles for download confirmation */
+.modal{position:fixed;left:0;top:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;z-index:120}
+.modal.hidden{display:none}
+.modal-backdrop{position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(2,6,23,0.6)}
+.modal-box{position:relative;background:var(--card);color:var(--text);padding:1.25rem;border-radius:10px;max-width:520px;width:calc(100% - 2rem);box-shadow:0 10px 30px rgba(2,6,23,0.6);z-index:121}
+.modal-box h3{margin:0;font-size:1.125rem}
+.modal-actions{display:flex;gap:.5rem;justify-content:flex-end}
+.modal-actions .btn.primary{background:var(--accent);color:#07221a}
+.modal-actions .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
