@@ -103,10 +103,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     dlConfirm.addEventListener("click", function () {
-      // proceed to download in the same tab
+      // proceed to download in a new tab/window (preserve current page)
       var url = downloadBtn.getAttribute("href");
       if (url) {
-        window.location.href = url;
+        var w = window.open(url, "_blank");
+        try {
+          if (w) w.opener = null;
+        } catch (e) {
+          /* ignore */
+        }
       }
       closeDlModal();
     });
