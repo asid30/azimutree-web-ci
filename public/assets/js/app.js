@@ -31,6 +31,45 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Press/tap animation for screenshot images
+  (function () {
+    var imgs = document.querySelectorAll(".screenshots img");
+    if (!imgs || imgs.length === 0) return;
+
+    imgs.forEach(function (img) {
+      // make images focusable for keyboard activation
+      if (!img.hasAttribute("tabindex")) img.setAttribute("tabindex", "0");
+
+      function addPressed() {
+        img.classList.add("pressed");
+      }
+
+      function removePressed() {
+        img.classList.remove("pressed");
+      }
+
+      img.addEventListener("pointerdown", function (e) {
+        addPressed();
+      });
+
+      img.addEventListener("pointerup", function (e) {
+        removePressed();
+      });
+
+      img.addEventListener("pointercancel", removePressed);
+      img.addEventListener("pointerleave", removePressed);
+
+      // keyboard activation (Enter / Space)
+      img.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          addPressed();
+          setTimeout(removePressed, 150);
+        }
+      });
+    });
+  })();
+
   // Download confirmation modal
   var downloadBtn = document.getElementById("download");
   var dlModal = document.getElementById("downloadModal");
@@ -118,6 +157,93 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+
+  // Hero-style fullscreen transition (tap to zoom) for screenshots
+  (function () {
+    var imgs = document.querySelectorAll(".screenshots img");
+    if (!imgs || imgs.length === 0) return;
+
+    function openHero(img) {
+      var rect = img.getBoundingClientRect();
+      var clone = img.cloneNode(true);
+      clone.style.position = "fixed";
+      clone.style.left = rect.left + "px";
+      clone.style.top = rect.top + "px";
+      clone.style.width = rect.width + "px";
+      clone.style.height = rect.height + "px";
+      clone.style.margin = "0";
+      clone.style.zIndex = 200;
+      clone.classList.add("hero-image");
+      document.body.appendChild(clone);
+
+      // small overlay backdrop
+      var overlay = document.createElement("div");
+      overlay.className = "hero-overlay";
+      document.body.appendChild(overlay);
+
+      // ensure layout applied
+      clone.getBoundingClientRect();
+
+      // compute target size (fit into viewport while keeping aspect)
+      var maxW = Math.max(window.innerWidth * 0.92, window.innerWidth - 32);
+      var maxH = Math.max(window.innerHeight * 0.86, window.innerHeight - 32);
+      var naturalW = img.naturalWidth || rect.width;
+      var naturalH = img.naturalHeight || rect.height;
+      var ratio = naturalW / Math.max(1, naturalH);
+      var targetW = maxW;
+      var targetH = targetW / ratio;
+      if (targetH > maxH) {
+        targetH = maxH;
+        targetW = targetH * ratio;
+      }
+      var targetLeft = (window.innerWidth - targetW) / 2;
+      var targetTop = (window.innerHeight - targetH) / 2;
+
+      // animate to center
+      requestAnimationFrame(function () {
+        overlay.classList.add("open");
+        clone.style.left = targetLeft + "px";
+        clone.style.top = targetTop + "px";
+        clone.style.width = targetW + "px";
+        clone.style.height = targetH + "px";
+        clone.style.borderRadius = "12px";
+      });
+
+      function closeHero() {
+        overlay.classList.remove("open");
+        clone.style.left = rect.left + "px";
+        clone.style.top = rect.top + "px";
+        clone.style.width = rect.width + "px";
+        clone.style.height = rect.height + "px";
+        setTimeout(function () {
+          if (clone.parentNode) clone.parentNode.removeChild(clone);
+          if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+        }, 360);
+        document.removeEventListener("keydown", onKey);
+      }
+
+      overlay.addEventListener("click", closeHero);
+      clone.addEventListener("click", closeHero);
+
+      function onKey(e) {
+        if (e.key === "Escape") closeHero();
+      }
+      document.addEventListener("keydown", onKey);
+    }
+
+    imgs.forEach(function (el) {
+      el.style.cursor = "zoom-in";
+      el.addEventListener("click", function () {
+        openHero(el);
+      });
+      el.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openHero(el);
+        }
+      });
+    });
+  })();
   // Translate vertical mouse wheel into horizontal scroll for desktop users
   var sliderContainer = document.querySelector(".slider-container");
   var scrollEl = slider || sliderContainer;
