@@ -80,6 +80,14 @@ document.addEventListener("DOMContentLoaded", function () {
     downloadBtn.addEventListener("click", function (e) {
       // prevent immediate navigation
       e.preventDefault();
+      // extract version from URL and show in modal
+      var versionEl = document.getElementById("downloadVersion");
+      var href = downloadBtn.getAttribute("href") || "";
+      var m = href.match(/v(\d+\.\d+\.\d+)/);
+      if (versionEl)
+        versionEl.textContent = m
+          ? "Versi saat ini: " + m[1]
+          : "Versi saat ini: tidak diketahui";
       // show modal
       dlModal.classList.remove("hidden");
       // focus confirm

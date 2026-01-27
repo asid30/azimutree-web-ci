@@ -25,7 +25,8 @@
                 <a class="app-link" href="<?= base_url() ?>">🏠 Beranda</a>
                 <a class="app-link" href="<?= base_url('panduan') ?>">📘 Panduan Aplikasi</a>
                 <a class="app-link" href="<?= base_url('template') ?>">📄 Template Excel</a>
-                <a class="app-link" href="https://saweria.co/asid30" target="_blank" rel="noopener">☕ Dukungan</a>
+                <a class="app-link" href="<?= base_url('about') ?>">ℹ️ Tentang Aplikasi</a>
+                <a class="app-link" href="https://forms.gle/7KE2jecH4CiNQxTg9" target="_blank" rel="noopener noreferrer">📝 Kotak Saran</a>
             </nav>
             <button id="menuToggle" class="menu-btn" aria-label="Toggle menu">☰</button>
         </div>
@@ -39,7 +40,8 @@
         <a class="app-link" href="<?= base_url() ?>">🏠 Beranda</a>
         <a class="app-link" href="<?= base_url('panduan') ?>">📘 Panduan Aplikasi</a>
         <a class="app-link" href="<?= base_url('template') ?>">📄 Template Excel</a>
-        <a class="app-link" href="https://saweria.co/asid30" target="_blank" rel="noopener">☕ Dukungan</a>
+        <a class="app-link" href="<?= base_url('about') ?>">ℹ️ Tentang Aplikasi</a>
+        <a class="app-link" href="https://forms.gle/7KE2jecH4CiNQxTg9" target="_blank" rel="noopener noreferrer">📝 Kotak Saran</a>
     </div>
 </nav>
 
@@ -59,6 +61,7 @@
     <div class="modal-box" role="document">
         <h3 id="downloadModalTitle">Anda akan mengunduh aplikasi ini</h3>
         <p class="muted" style="margin-top:.5rem">⚠️ Catatan: Aplikasi ini diinstal di luar Play Store.<br>Aktifkan “Izinkan dari sumber ini” saat diminta oleh Android.</p>
+        <p id="downloadVersion" class="muted" style="margin-top:.5rem"></p>
         <div class="modal-actions" style="margin-top:1rem">
             <button id="downloadConfirm" class="btn primary">Lanjutkan dan Unduh</button>
             <button id="downloadCancel" class="btn ghost">Batal</button>
