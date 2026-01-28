@@ -1,68 +1,259 @@
-# CodeIgniter 4 Application Starter
+# Azimutree Web - Landing Page & Dokumentasi
 
-## What is CodeIgniter?
+Website resmi untuk aplikasi Azimutree — aplikasi Android untuk pemantauan kesehatan hutan dengan metode Forest Health Monitoring (FHM).
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+🌐 **Live Website**: [azimutree.kesehatan-hutan.com](https://azimutree.kesehatan-hutan.com)  
+📱 **Repository Aplikasi Mobile**: [asid30/azimutree-flutter](https://github.com/asid30/azimutree-flutter)
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+---
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## 📖 Tentang Project
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+**Azimutree Web** adalah website landing page yang menyediakan informasi lengkap tentang aplikasi Azimutree, panduan penggunaan, serta tautan unduhan APK. Website ini dibangun menggunakan **CodeIgniter 4** dan di-deploy secara otomatis ke cPanel melalui GitHub Actions.
 
-## Installation & updates
+### Tujuan Website
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+- **Informasi**: Menyediakan informasi lengkap tentang aplikasi Azimutree, fitur-fitur, dan teknologi yang digunakan
+- **Dokumentasi**: Panduan lengkap penggunaan aplikasi untuk pengguna akhir
+- **Distribusi**: Menyediakan tautan unduhan APK versi terbaru aplikasi Azimutree
+- **Edukasi**: Menjelaskan konsep Forest Health Monitoring (FHM) dan metode klaster plot
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+---
 
-## Setup
+## 🚀 Fitur Website
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+- **Halaman Home**: Landing page dengan hero section, fitur utama, dan tautan download APK
+- **Halaman About**: Informasi lengkap tentang aplikasi, latar belakang, konsep klaster plot, tujuan, dan teknologi
+- **Halaman Panduan**: Panduan lengkap penggunaan aplikasi Azimutree untuk pengguna
+- **Responsive Design**: Tampilan yang optimal di berbagai ukuran layar
+- **Dark/Light Theme**: Dukungan untuk tema gelap dan terang
+- **Screenshot Slider**: Galeri screenshot aplikasi dengan slider otomatis
 
-## Important Change with index.php
+---
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+## 🛠️ Teknologi yang Digunakan
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+- **Framework**: CodeIgniter 4 (PHP 8.1+)
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Deployment**: cPanel (otomatis via `.cpanel.yml`)
+- **Version Control**: Git & GitHub
+- **CI/CD**: GitHub Actions (untuk deployment otomatis)
 
-**Please** read the user guide for a better explanation of how CI4 works!
+---
 
-## Repository Management
+## 📋 Persyaratan Sistem
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+### Server Requirements
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+- **PHP**: Versi 8.1 atau lebih tinggi
+- **Extensions** yang diperlukan:
+  - `intl` - Internationalization support
+  - `mbstring` - Multibyte string support
+  - `json` - JSON support (enabled by default)
+  
+### Development Requirements
 
-## Server Requirements
+- **Composer**: Package manager untuk PHP
+- **Web Server**: Apache/Nginx dengan PHP support
+- **Git**: Version control
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+---
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+## 🔧 Instalasi & Setup
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+### 1. Clone Repository
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+```bash
+git clone https://github.com/asid30/azimutree-web-ci.git
+cd azimutree-web-ci
+```
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+### 2. Install Dependencies
+
+```bash
+composer install
+```
+
+### 3. Konfigurasi Environment
+
+Copy file `env` menjadi `.env` dan sesuaikan konfigurasi:
+
+```bash
+cp env .env
+```
+
+Edit file `.env` dan sesuaikan:
+
+```env
+# Base URL aplikasi
+app.baseURL = 'http://localhost:8080/'
+
+# Environment (development/production)
+CI_ENVIRONMENT = development
+```
+
+### 4. Jalankan Development Server
+
+```bash
+php spark serve
+```
+
+Website akan berjalan di `http://localhost:8080`
+
+---
+
+## 📁 Struktur Project
+
+```
+azimutree-web-ci/
+├── app/
+│   ├── Controllers/     # Controller (Home.php)
+│   ├── Views/           # View files (home.php, about.php, panduan.php, layout.php)
+│   ├── Config/          # Konfigurasi aplikasi
+│   └── ...
+├── public/              # Public assets (CSS, JS, images)
+│   ├── assets/          # Asset files (gambar, stylesheet, javascript)
+│   ├── index.php        # Entry point
+│   └── .htaccess
+├── vendor/              # Composer dependencies
+├── .cpanel.yml          # Konfigurasi deployment cPanel
+├── composer.json        # Composer dependencies
+├── spark                # CLI tool CodeIgniter
+└── README.md
+```
+
+---
+
+## 🌐 Deployment
+
+### Automatic Deployment ke cPanel
+
+Website ini dikonfigurasi untuk deployment otomatis ke cPanel menggunakan file `.cpanel.yml`. Setiap push ke branch production akan otomatis men-deploy perubahan.
+
+**Konfigurasi `.cpanel.yml`:**
+
+```yaml
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/aziw7273/public_html
+    - rm -rf $DEPLOYPATH/*
+    - cp -R public/* $DEPLOYPATH/
+```
+
+**Catatan**: Hanya folder `public/` yang di-deploy ke server untuk keamanan.
+
+### Manual Deployment
+
+Jika ingin deploy manual:
+
+1. Upload seluruh project ke server
+2. Arahkan document root web server ke folder `public/`
+3. Pastikan file `.htaccess` aktif (untuk Apache)
+4. Set permission yang sesuai untuk folder `writable/`
+
+---
+
+## 👨‍💻 Development
+
+### Menjalankan di Local
+
+1. Clone repository
+2. Install dependencies: `composer install`
+3. Copy `.env` dari template `env`
+4. Jalankan server: `php spark serve`
+5. Akses `http://localhost:8080`
+
+### Struktur Routing
+
+Routes didefinisikan di `app/Config/Routes.php`:
+
+- `/` - Halaman home
+- `/about` - Halaman tentang aplikasi
+- `/panduan` - Halaman panduan lengkap
+- `/template` - Halaman template (jika ada)
+
+### Menambahkan Halaman Baru
+
+1. Buat view file di `app/Views/`
+2. Tambahkan method di `app/Controllers/Home.php`
+3. Daftarkan route di `app/Config/Routes.php`
+
+---
+
+## 🧪 Testing
+
+Jalankan unit tests menggunakan PHPUnit:
+
+```bash
+composer test
+```
+
+Atau langsung dengan PHPUnit:
+
+```bash
+./vendor/bin/phpunit
+```
+
+---
+
+## 📝 CodeIgniter 4 Information
+
+Website ini dibangun menggunakan **CodeIgniter 4**, PHP framework yang ringan, cepat, fleksibel, dan aman.
+
+### Dokumentasi CodeIgniter 4
+
+- [User Guide](https://codeigniter.com/user_guide/) - Dokumentasi lengkap framework
+- [CodeIgniter Forum](https://forum.codeigniter.com/) - Komunitas dan support
+- [CodeIgniter 4 Repository](https://github.com/codeigniter4/CodeIgniter4) - Source code framework
+
+### Penting: Struktur File
+
+`index.php` berada di dalam folder `public/` (bukan di root project) untuk keamanan dan pemisahan komponen yang lebih baik. Web server harus dikonfigurasi untuk mengarah ke folder `public/`.
+
+---
+
+## 🤝 Kontribusi
+
+Kontribusi sangat diterima! Silakan:
+
+1. Fork repository ini
+2. Buat branch baru (`git checkout -b feature/AmazingFeature`)
+3. Commit perubahan (`git commit -m 'Add some AmazingFeature'`)
+4. Push ke branch (`git push origin feature/AmazingFeature`)
+5. Buat Pull Request
+
+---
+
+## 📄 License
+
+Project ini menggunakan lisensi **MIT License**. Lihat file [LICENSE](LICENSE) untuk informasi lebih lanjut.
+
+---
+
+## 👤 Author
+
+**Asid**
+
+- GitHub: [@asid30](https://github.com/asid30)
+- Website: [azimutree.kesehatan-hutan.com](https://azimutree.kesehatan-hutan.com)
+
+---
+
+## 🔗 Link Terkait
+
+- 📱 **Aplikasi Mobile**: [asid30/azimutree-flutter](https://github.com/asid30/azimutree-flutter)
+- 🌐 **Website**: [azimutree.kesehatan-hutan.com](https://azimutree.kesehatan-hutan.com)
+- ☕ **Support**: [Saweria](https://saweria.co/asid30)
+
+---
+
+## 📞 Support & Kontak
+
+Jika Anda memiliki pertanyaan atau menemukan masalah, silakan:
+
+- Buat [Issue](https://github.com/asid30/azimutree-web-ci/issues) di GitHub
+- Hubungi melalui GitHub [@asid30](https://github.com/asid30)
+
+---
+
+**Azimutree** - Forest Health Monitoring Made Easy 🌳📱
