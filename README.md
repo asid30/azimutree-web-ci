@@ -84,8 +84,12 @@ cp env .env
 Edit file `.env` dan sesuaikan:
 
 ```env
-# Base URL aplikasi (gunakan https:// untuk production)
+# Base URL aplikasi
+# Development
 app.baseURL = 'http://localhost:8080/'
+
+# Production (gunakan HTTPS)
+# app.baseURL = 'https://azimutree.kesehatan-hutan.com/'
 
 # Environment (development/production)
 CI_ENVIRONMENT = development
@@ -153,15 +157,35 @@ deployment:
 - Repository lengkap berada di lokasi terpisah di server (biasanya di home directory)
 - Hanya folder `public/` yang di-deploy ke document root (`public_html`) untuk keamanan
 - Folder lain seperti `app/`, `vendor/`, `writable/` tetap berada di lokasi repository utama
+- **Downtime**: Proses `rm -rf` dan `cp` dapat menyebabkan downtime singkat saat deployment
+- Path di `public/index.php` harus dikonfigurasi dengan benar agar dapat mengakses folder `app/` di luar document root
 
 ### Manual Deployment
 
-Jika ingin deploy manual:
+Jika ingin deploy manual, ikuti struktur berikut:
 
-1. Upload seluruh project ke server
-2. Arahkan document root web server ke folder `public/`
-3. Pastikan file `.htaccess` aktif (untuk Apache)
-4. Set permission folder `writable/` ke `755` atau `775` (diperlukan untuk cache, logs, dan sessions)
+**Struktur Server:**
+```
+/home/user/
+├── repository/          # Clone seluruh project di sini
+│   ├── app/
+│   ├── vendor/
+│   ├── writable/       # Set permission 755/775
+│   ├── public/
+│   └── ...
+└── public_html/        # Document root - copy dari repository/public/
+    ├── assets/
+    ├── index.php       # Pastikan path ke app/ dikonfigurasi dengan benar
+    └── .htaccess
+```
+
+**Langkah-langkah:**
+
+1. Clone atau upload seluruh project ke lokasi di luar document root (misal: `/home/user/repository/`)
+2. Copy isi folder `public/` ke `public_html/` (document root)
+3. Edit `public_html/index.php` dan pastikan path ke folder `app/` benar (gunakan absolute path)
+4. Set permission folder `writable/` ke `755` atau `775` (untuk cache, logs, sessions)
+5. Pastikan file `.htaccess` aktif (untuk Apache)
 
 ---
 
