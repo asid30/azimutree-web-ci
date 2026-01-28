@@ -9,7 +9,7 @@ Website resmi untuk aplikasi Azimutree — aplikasi Android untuk pemantauan kes
 
 ## 📖 Tentang Project
 
-**Azimutree Web** adalah website landing page yang menyediakan informasi lengkap tentang aplikasi Azimutree, panduan penggunaan, serta tautan unduhan APK. Website ini dibangun menggunakan **CodeIgniter 4** dan di-deploy secara otomatis ke cPanel melalui GitHub Actions.
+**Azimutree Web** adalah website landing page yang menyediakan informasi lengkap tentang aplikasi Azimutree, panduan penggunaan, serta tautan unduhan APK. Website ini dibangun menggunakan **CodeIgniter 4** dan di-deploy secara otomatis ke cPanel melalui fitur Git Version Control.
 
 ### Tujuan Website
 
@@ -35,9 +35,8 @@ Website resmi untuk aplikasi Azimutree — aplikasi Android untuk pemantauan kes
 
 - **Framework**: CodeIgniter 4 (PHP 8.1+)
 - **Frontend**: HTML5, CSS3, JavaScript
-- **Deployment**: cPanel (otomatis via `.cpanel.yml`)
+- **Deployment**: cPanel Git Version Control (otomatis via `.cpanel.yml`)
 - **Version Control**: Git & GitHub
-- **CI/CD**: GitHub Actions (untuk deployment otomatis)
 
 ---
 
@@ -128,7 +127,7 @@ azimutree-web-ci/
 
 ### Automatic Deployment ke cPanel
 
-Website ini dikonfigurasi untuk deployment otomatis ke cPanel menggunakan file `.cpanel.yml`. Setiap push ke branch production akan otomatis men-deploy perubahan.
+Website ini dikonfigurasi untuk deployment otomatis menggunakan **cPanel Git Version Control**. File `.cpanel.yml` digunakan oleh cPanel untuk menjalankan deployment task otomatis setiap kali ada push ke repository yang terhubung dengan cPanel.
 
 **Konfigurasi `.cpanel.yml`:**
 
@@ -140,7 +139,17 @@ deployment:
     - cp -R public/* $DEPLOYPATH/
 ```
 
-**Catatan**: Hanya folder `public/` yang di-deploy ke server untuk keamanan.
+**Cara Kerja Deployment:**
+
+1. Repository terhubung ke cPanel melalui fitur Git Version Control
+2. Setiap push ke branch yang dikonfigurasi akan memicu deployment otomatis
+3. cPanel menjalankan task yang didefinisikan di `.cpanel.yml`
+4. Hanya folder `public/` yang di-copy ke `public_html` karena konfigurasi ini digunakan untuk hosting shared di mana seluruh project sudah ada di server, dan hanya public folder yang perlu di-copy ke document root
+
+**Catatan Penting**: 
+- Konfigurasi ini cocok untuk hosting cPanel shared di mana seluruh project repository sudah di-clone ke server
+- Hanya folder `public/` yang di-deploy ke document root (`public_html`) untuk keamanan
+- Folder lain seperti `app/`, `vendor/`, `writable/` sudah ada di server di luar document root
 
 ### Manual Deployment
 
