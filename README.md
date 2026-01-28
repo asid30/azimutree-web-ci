@@ -84,7 +84,7 @@ cp env .env
 Edit file `.env` dan sesuaikan:
 
 ```env
-# Base URL aplikasi
+# Base URL aplikasi (gunakan https:// untuk production)
 app.baseURL = 'http://localhost:8080/'
 
 # Environment (development/production)
@@ -115,6 +115,7 @@ azimutree-web-ci/
 │   ├── index.php        # Entry point
 │   └── .htaccess
 ├── vendor/              # Composer dependencies
+├── writable/            # Writable folder (cache, logs, sessions) - perlu permission 755/775
 ├── .cpanel.yml          # Konfigurasi deployment cPanel
 ├── composer.json        # Composer dependencies
 ├── spark                # CLI tool CodeIgniter
@@ -141,15 +142,17 @@ deployment:
 
 **Cara Kerja Deployment:**
 
-1. Repository terhubung ke cPanel melalui fitur Git Version Control
-2. Setiap push ke branch yang dikonfigurasi akan memicu deployment otomatis
-3. cPanel menjalankan task yang didefinisikan di `.cpanel.yml`
-4. Hanya folder `public/` yang di-copy ke `public_html` karena konfigurasi ini digunakan untuk hosting shared di mana seluruh project sudah ada di server, dan hanya public folder yang perlu di-copy ke document root
+1. **Setup Awal**: Repository terhubung ke cPanel melalui fitur Git Version Control. Saat pertama kali setup, cPanel akan clone seluruh repository ke server.
+2. **Push Changes**: Setiap push ke branch yang dikonfigurasi akan memicu deployment otomatis.
+3. **Deployment Task**: cPanel menjalankan task yang didefinisikan di `.cpanel.yml`.
+4. **Copy Public Files**: Hanya folder `public/` yang di-copy ke `public_html` (document root).
+5. **Project Location**: Seluruh project ada di server di luar document root. Hanya file-file publik (HTML, CSS, JS, images) yang perlu ada di document root untuk keamanan.
 
 **Catatan Penting**: 
-- Konfigurasi ini cocok untuk hosting cPanel shared di mana seluruh project repository sudah di-clone ke server
+- Konfigurasi ini cocok untuk hosting cPanel shared
+- Repository lengkap berada di lokasi terpisah di server (biasanya di home directory)
 - Hanya folder `public/` yang di-deploy ke document root (`public_html`) untuk keamanan
-- Folder lain seperti `app/`, `vendor/`, `writable/` sudah ada di server di luar document root
+- Folder lain seperti `app/`, `vendor/`, `writable/` tetap berada di lokasi repository utama
 
 ### Manual Deployment
 
@@ -158,7 +161,7 @@ Jika ingin deploy manual:
 1. Upload seluruh project ke server
 2. Arahkan document root web server ke folder `public/`
 3. Pastikan file `.htaccess` aktif (untuk Apache)
-4. Set permission yang sesuai untuk folder `writable/`
+4. Set permission folder `writable/` ke `755` atau `775` (diperlukan untuk cache, logs, dan sessions)
 
 ---
 
