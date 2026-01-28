@@ -2,7 +2,7 @@
 
 Website resmi untuk aplikasi Azimutree — aplikasi Android untuk pemantauan kesehatan hutan dengan metode Forest Health Monitoring (FHM).
 
-🌐 **Live Website**: [azimutree.kesehatan-hutan.com](https://azimutree.kesehatan-hutan.com)  
+🌐 **Live Website**: [https://azimutree.my.id/](https://https://azimutree.my.id/)  
 📱 **Repository Aplikasi Mobile**: [asid30/azimutree-flutter](https://github.com/asid30/azimutree-flutter)
 
 ---
